@@ -5,10 +5,12 @@ fun noteMenu(digitCommand: Int) {
         println("Заметки:")
         println("0. Создать новую заметку")
         runMenu(notes)
-        when (val digitCommand: Int? = scannerInt()) {
-            0 -> noteCreator(archiveItem)
-            null -> nullError(notes)
-            notes.size+1 -> break
+        val digitCommand: Int? = scannerInt()
+        when {
+            digitCommand == 0 -> noteCreator(archiveItem)
+            digitCommand == null -> error(notes)
+            digitCommand > notes.size+1 -> error(notes)
+            digitCommand == notes.size+1 -> break
             else -> noteViewer(archiveItem.notes[digitCommand-1])
         }
     } while (digitCommand != notes.size+1)

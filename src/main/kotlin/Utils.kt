@@ -27,7 +27,7 @@ fun <T: Named> runMenu(list: List<T>) {
     }
 
 // обработка неверного ввода цифр
-fun <T> nullError(list: ArrayList<T>) {
+fun <T> error(list: ArrayList<T>) {
     println("Пожалуйста, введите цифру от 0 до ${list.size+1}")
 }
 
