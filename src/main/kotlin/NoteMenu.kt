@@ -10,6 +10,7 @@ fun noteMenu(digitCommand: Int) {
             digitCommand == 0 -> noteCreator(archiveItem)
             digitCommand == null -> error(notes)
             digitCommand > notes.size+1 -> error(notes)
+            digitCommand < 0 -> error(notes)
             digitCommand == notes.size+1 -> break
             else -> noteViewer(archiveItem.notes[digitCommand-1])
         }
